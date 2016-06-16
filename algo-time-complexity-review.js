@@ -1,94 +1,108 @@
 /////////// Prompt 1 ///////////
-/////////// time complexity: 
+/////////// time complexity: O(n)
+
+//n is array length
 function findMax(array){
-  var max = -Infinity;
-  for (var i = 0; i < array.length; i++){
-    if (array[i] > max){
-      max = array[i];
+  var max = -Infinity; //1
+  for (var i = 0; i < array.length; i++){ //n
+    if (array[i] > max){ //1
+      max = array[i]; //1
     }
   }
-  return max; 
+  return max; //1
 }
-
+//((1+1)*n) + 1 + 1 = 2n + 2
 
 /////////// Prompt 2 ///////////
-/////////// time complexity: 
+/////////// time complexity: O(n)
+
+
+//n is array length
 function contains(array, target){
-  return array.indexOf(target) > -1;
+  return array.indexOf(target) > -1; //n
 }
 
 
 /////////// Prompt 3 ///////////
-/////////// time complexity: 
+/////////// time complexity: O(n)
+
+//n is array length
 function partialContains(array, target, start){
-  return array.slice(start).indexOf(target) > -1;
+  return array.slice(start).indexOf(target) > -1; // 2n
 }
 
 
 /////////// Prompt 4 ///////////
-/////////// time complexity: 
+/////////// time complexity: O(1)
+
+//n is array length
 function square(array){
-  for (var i = 0; i < 3; i++){
-    array[i] = array[i] * array[i];
+  for (var i = 0; i < 3; i++){ //3
+    array[i] = array[i] * array[i]; //1
   }
-  return array;
+  return array; //1
 }
 
 /////////// Prompt 5 ///////////
-/////////// time complexity: 
+/////////// time complexity: O(n)
+
+//n is array length
 function repeat(array){
-  var repeat = [];
-  for (var j = 0; j < 10; j++){
-    repeat[j] = [];
-    for (var i = 0; i < array.length; i++){
-      repeat[j].push(array[i]);
+  var repeat = []; //1
+  for (var j = 0; j < 10; j++){ //10
+    repeat[j] = []; //1
+    for (var i = 0; i < array.length; i++){ //n
+      repeat[j].push(array[i]); //1
     }
   }
-  return repeat; 
+  return repeat; //1
 }
-//what if we replace 10 with a parameter? 
 
 
 /////////// Prompt 6 ///////////
-/////////// time complexity: 
+/////////// time complexity: O(n)
+
+//n is smaller of num1 or num2
 function gcf(num1, num2){
-  if (num1 > num2){ //this ensures num1 is the smaller number
-    var temp = num1;
-    num1 = num2;
-    num2 = temp;
+  if (num1 > num2){ //1
+    var temp = num1; //1
+    num1 = num2; //1
+    num2 = temp; //1
   }
-  for (var i = num1; i > 1; i--){
-    if (num1 % i === 0 && num2 % i === 0){
-      return i;
+  for (var i = num1; i > 1; i--){ //n
+    if (num1 % i === 0 && num2 % i === 0){ //2
+      return i; //1
     }
   }
-  return 1;
+  return 1; //1
 }
 
 
 /////////// Prompt 7 ///////////
-/////////// time complexity: 
+/////////// time complexity: O(n^2)
+
+//n is string length
 function countChar(string){
-  var counts = {};
-  var currChar, currCharCount;
-  for (var i = 0; i < string.length; i++){
-    currChar = string[i];
-    currCharCount = 1;
-    for (var j = i+1; j < string.length; j++){
-      if (currChar === string[j]){
-        currCharCount++;
+  var counts = {}; //1
+  var currChar, currCharCount; //1
+  for (var i = 0; i < string.length; i++){ //n
+    currChar = string[i]; //1
+    currCharCount = 1; //1
+    for (var j = i+1; j < string.length; j++){ //n
+      if (currChar === string[j]){ //1
+        currCharCount++; //1
       }
     }
-    if (!counts.hasOwnProperty(currChar)){
-      counts[currChar] = currCharCount;
+    if (!counts.hasOwnProperty(currChar)){ //1
+      counts[currChar] = currCharCount; //1
     }
   }
-  return counts;
+  return counts; //1
 }
 
 
 /////////// Prompt 8 ///////////
-/////////// time complexity: 
+/////////// time complexity: O(n)
 var factorial = function(num){
   if (num < 0){
     return;
@@ -102,7 +116,7 @@ var factorial = function(num){
 
 
 /////////// Prompt 9 ///////////
-/////////// time complexity: 
+/////////// time complexity: O(log N) [dividing by 3 every time]
 function tournament(players){
   var results;
   if (players.length < 3){
@@ -121,8 +135,8 @@ function tournament(players){
 
 
 /////////// Prompt 10 ///////////
-/////////// time complexity: 
-function allPasswords(allowedChars, maxLength){
+/////////// time complexity: O(c^n)
+function allPasswords(allowedChars, maxLength){ 
   var results = [];
 
   function findPassword(currentAttempt){
@@ -142,7 +156,7 @@ function allPasswords(allowedChars, maxLength){
 
 
 /////////// Prompt 11 ///////////
-/////////// time complexity: 
+/////////// time complexity: O(log N)
 function findColor(quadTree, coordinates){
   //a quad tree is a tree where each node has 4 children 
   //or no children, usually used to divide a two-dimensional
